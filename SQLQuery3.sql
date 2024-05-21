@@ -47,12 +47,14 @@ CREATE TABLE Aluno_Disciplina
 );
 
 ALTER TABLE Aluno_Disciplina ADD Media numeric(3,1) null;
+ALTER TABLE Aluno_Disciplina ADD Situacao varchar(17) null;
 
 INSERT INTO Aluno_Disciplina (RA_aluno, Sigla_disciplina, Semestre, Ano, N1, N2, Sub, Faltas)
 VALUES 
 	('123456789000000', 'BD', 2, 2022, 4.7, 9, null, 6),
 	('098765432111111', '.Net', 1, 2022, 7, 1, 6, 4);
 
+DROP TABLE Aluno_Disciplina
 
 --ALTER TABLE Aluno ADD CONSTRAINT UQCPF UNIQUE (CPF);
 
