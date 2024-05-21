@@ -46,6 +46,8 @@ CREATE TABLE Aluno_Disciplina
 	CONSTRAINT FkSigla_disciplina FOREIGN KEY (Sigla_disciplina) REFERENCES Disciplina(Sigla)
 );
 
+ALTER TABLE Aluno_Disciplina ADD Media numeric(3,1) null;
+
 INSERT INTO Aluno_Disciplina (RA_aluno, Sigla_disciplina, Semestre, Ano, N1, N2, Sub, Faltas)
 VALUES 
 	('123456789000000', 'BD', 2, 2022, 4.7, 9, null, 6),
