@@ -70,5 +70,3 @@ BEGIN
 	CLOSE Aux_Cursor
 	DEALLOCATE Aux_Cursor
 END
- 
-EXEC Calculo_Media_Parcial

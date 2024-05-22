@@ -22,7 +22,7 @@ BEGIN
             @Sub numeric(3,1),
             @Faltas int,
             @Media numeric(3,1),
-            @Situacao VARCHAR(17),
+            @Situacao VARCHAR(20),
             @Maior numeric(3,1),
             @frequencia numeric(4,2)
             
@@ -99,5 +99,3 @@ BEGIN
 	CLOSE Aux_Cursor
 	DEALLOCATE Aux_Cursor
 END
-
-EXEC Fechar_semestre
