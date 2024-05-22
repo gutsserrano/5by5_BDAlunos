@@ -23,7 +23,7 @@ BEGIN
             @Faltas int,
             @Media numeric(3,1),
             @Situacao VARCHAR(17),
-            @Menor numeric(3,1),
+            @Maior numeric(3,1),
             @frequencia numeric(4,2)
             
  
@@ -40,11 +40,7 @@ BEGIN
 	BEGIN 
         DECLARE @Total_aulas int;
         SET @Total_aulas =( SELECT Total_aulas FROM Disciplina WHERE Sigla = @codigo)
-
-
-
-
-        
+   
 
         if (@N1 is null)
         begin 
@@ -57,21 +53,21 @@ BEGIN
 
         if(@Sub is not null)
         BEGIN
-            SET @Menor = @N1
+            SET @Maior = @N1
 
-            if (@N1 > @N2)
+            if (@N1 < @N2)
             BEGIN
-                SET @Menor = @N2
+                SET @Maior = @N2
             END
 
-            SET @Media = (@Menor + @Sub) / 2
+            SET @Media = (@Maior + @Sub) / 2
         END
         ELSE
         BEGIN
             SET @Media = (@N1 + @N2) / 2
         END
 
-        SET @frequencia = (@Faltas * 100) / @Total_aulas
+        SET @frequencia = ((@Total_aulas - @Faltas) * 100) / @Total_aulas
 
 
         IF(@frequencia < 75.0)
@@ -98,9 +94,7 @@ BEGIN
             @Faltas,
             @Media,
             @Situacao
-
 	END
-    PRINT('');
  
 	CLOSE Aux_Cursor
 	DEALLOCATE Aux_Cursor
